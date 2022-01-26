@@ -7,6 +7,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>FIESP - EXPLORA DEREX</title>
+    <script>
+        // make this a function so you can pass in a DIV name to support the ability to have multiple reports on a page
+
+        function resizeIFrameToFitContent(iFrame) {
+
+            var reportContainer = document.getElementById('reportContainer');
+
+            iFrame.width = reportContainer.clientWidth;
+            iFrame.height = reportContainer.clientHeight;
+
+            console.log("hi");
+
+        }
+
+        window.addEventListener('DOMContentLoaded', function(e) {
+            // powerbi.js doesnt give the embeeded iframe's an ID so we need to loop to find them.
+            // assuming the only iframes that should be on any of our pages is the one we are embedding.
+            var iframes = document.querySelectorAll("iframe");
+            for (var i = 0; i < iframes.length; i++) {
+                resizeIFrameToFitContent(iframes[i]);
+
+                // PowerBI JavaScript adds "width:100%;height:100%;" in the style attribute which causes sizing issues. We'll style it from JavaScript and CSS. So we'll strip the inline style attribute from the iFrame.
+                iframes[i].attributes.removeNamedItem("style");
+
+                //alert(iframes[i].parentNode.id); // gets the parent div containing the iFrame. Can use this to make sure were re-rizing the right iFrame if we have multiple reports on one page.
+
+            }
+        });
+    </script>
 </head>
 
 <body>
@@ -47,7 +76,9 @@
             </nav>
         </div>
         <div class="world"></div>
-        <iframe title="Painel" width="100%" height="700px" src="https://app.powerbi.com/view?r=eyJrIjoiZDM2MDc5M2ItZTE0NS00YjYxLWI1NGItMDk4MGVjMDIwMWM1IiwidCI6IjNjN2Q0Yzg0LWE0YmUtNGVjYi1iY2U4LTVhZjdjYTI1MWYwMSJ9&pageName=ReportSection" frameborder="0" allowFullScreen="true"></iframe>
+        <div id="reportContainer">
+            <iframe title="Painel" src="https://app.powerbi.com/view?r=eyJrIjoiZDM2MDc5M2ItZTE0NS00YjYxLWI1NGItMDk4MGVjMDIwMWM1IiwidCI6IjNjN2Q0Yzg0LWE0YmUtNGVjYi1iY2U4LTVhZjdjYTI1MWYwMSJ9&pageName=ReportSection" frameborder="0" scrolling="no" allowFullScreen="true"></iframe>
+        </div>
     </div>
 </body>
 

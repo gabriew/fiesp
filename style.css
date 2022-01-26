@@ -132,3 +132,8 @@ body {
 #menuView ul .active a {
     color: #FBBD08;
 }
+
+#reportContainer {
+    min-height: 800px;
+    min-width: 100%;
+}
