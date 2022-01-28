@@ -100,6 +100,16 @@ body {
     align-items: center;
 }
 
+#menuView {
+    position: absolute;
+    margin-top: 80px;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 400px;
+}
+
 #menuView ul {
     padding: 0px;
     margin: 0px;
@@ -109,10 +119,12 @@ body {
 #menuView ul li {
     display: inline;
     margin: 0px 5px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
 }
 
 #menuView ul li a {
-    padding: 2px 10px;
     display: inline-block;
     color: #474849;
     font-weight: bold;
@@ -121,15 +133,21 @@ body {
     font-size: 26px;
 }
 
-#menuView ul .active {
-    border-bottom: 5px solid #FBBD08;
+#menuView ul li.active a {
+    border-bottom: 3px solid #FBBD08;
     border-bottom-left-radius: 2.5px;
     border-bottom-right-radius: 2.5px;
-    border-top-left-radius: 2.5px;
-    border-top-right-radius: 2.5px;
+    padding-bottom: 5px;
+    width: 150px;
+    color: #FBBD08;
 }
 
-#menuView ul .active a {
+#menuView ul li.activeDashBoard a {
+    border-bottom: 3px solid #FBBD08;
+    border-bottom-left-radius: 2.5px;
+    border-bottom-right-radius: 2.5px;
+    padding-bottom: 5px;
+    width: 220px;
     color: #FBBD08;
 }
 
