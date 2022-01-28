@@ -131,6 +131,11 @@ body {
     text-decoration: none;
     cursor: pointer;
     font-size: 26px;
+    transition: all 0.5s;
+}
+
+#menuView ul li a:hover {
+    color: #FBBD08;
 }
 
 #menuView ul li.active a {
